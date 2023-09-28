@@ -1,0 +1,5 @@
+1. pydantic
+2. Swagger UI
+3. Inversion of control
+4. WSGI -----------> UVICORN
+5. send user as a response
