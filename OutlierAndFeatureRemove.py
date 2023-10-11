@@ -50,3 +50,26 @@ len(set(corr_features))
 
 X_train.drop(corr_features,axis=1)
 X_test.drop(corr_features,axis=1)
+
+
+# Grid Search
+from sklearn.model_selection import GridSearchCV
+
+# defining parameter range
+param_grid = {'C': [0.1, 1, 10, 100, 1000],
+              'gamma': [1, 0.1, 0.01, 0.001, 0.0001],
+              'kernel': ['rbf']}
+
+grid = GridSearchCV(SVC(), param_grid, refit = True, verbose = 3)
+
+# fitting the model for grid search
+grid.fit(X_train, y_train)
+# print best parameter after tuning
+print(grid.best_params_)
+
+# print how our model looks after hyper-parameter tuning
+print(grid.best_estimator_)
+grid_predictions = grid.predict(X_test)
+
+# print classification report
+print(classification_report(y_test, grid_predictions))
