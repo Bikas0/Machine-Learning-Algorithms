@@ -20,7 +20,7 @@ def remove_outlier(train_data, cols):
 
 train_data = remove_outlier(train_data, features)
 
-
+# ===============================Next Part ==================================
 # Feature Remove
 import seaborn as sns
 #Using Pearson Correlation
@@ -52,6 +52,7 @@ X_train.drop(corr_features,axis=1)
 X_test.drop(corr_features,axis=1)
 
 
+# ===============================Next Part ==================================
 # Grid Search
 from sklearn.model_selection import GridSearchCV
 
